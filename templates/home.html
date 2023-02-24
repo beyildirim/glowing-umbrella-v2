@@ -10,20 +10,28 @@
         width: 100%;
         height: 360px;
         object-fit: cover;
+        margin-bottom: 16px;
       }
     </style>
   </head>
   <body>
+    {% include 'nav.html' %}
+        <img class="img-fluid" id="banner" src="static/banner.jpg" height="320px" >
     <div class="container">
     <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
-    <img class="img-fluid" src="static/banner.jpg" height="320px" >
-    <h2 class="text-center mt-4 mb-4">About {{company_name}}</h2>
+    <div class="row" style="margin-bottom:16px">
+      <div class="col-md-6">
     <p class="lead">
       Thank you for your interest in working with Glowing Umbrella. We are a company that specializes in creating high-quality umbrellas that not only protect you from the elements, but also add a touch of style to your everyday life. We are always on the lookout for talented individuals who are passionate about what they do and are committed to excellence.
       <br>
       <br>
       We currently have the following positions available:
     </p>
+      </div>
+        <div class="d-none d-md-block col-md-6">
+      <img src="/static/banner2.jpg" style="height:320px;">
+        </div>
+    </div>
     <h2 class="text-center mt-2 mb-4">Job Openings</h2>
     <p>
       {% for job in jobs %}
@@ -31,9 +39,10 @@
       {% endfor %}
     </p>
     <div class="text-center">
-    <button class="btn btn-primary btn-lg">Contact Us</button>
-      <p class="mt-4">Copyright 2023, Glowing Umbrella</p>
+    <a href="mailto:info@glowing-umbrella.com?subject=Question%20about%20Job%20Openings&body=My%20name%3A%20%3Cyour%20name%20her%3E%0D%0A%0D%0AMy%20question%3A%20%3Center%20your%20question%20here%3E" class="btn btn-primary btn-lg">Contact Us</a>
     </div>
   </div>
+
+    {% include 'footer.html' %}
   </body>
 </html>
