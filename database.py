@@ -1,10 +1,7 @@
 import os
 from sqlalchemy import create_engine, text
 
-print(os.getenv("dburl"))
-
-db_connection = "[REDACTED]]"
-
+db_connection = os.getenv("DB_STRING")
 
 engine = create_engine(
   db_connection,
@@ -15,10 +12,11 @@ engine = create_engine(
   }
 )
 
+
 def load_jobs_from_db():
   with engine.connect() as conn:
     result = conn.execute(text("select * from jobs"))
     jobs = []
-    for row in result:
-      jobs.append(row)
+    for row in result.all():
+      jobs.append(dict(row))
     return jobs

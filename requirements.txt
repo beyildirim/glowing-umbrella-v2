@@ -1,4 +1,5 @@
 Flask
 gunicorn
-SQLAlchemy
+SQLAlchemy==1.4.46
 pymysql
+sympy
